@@ -1,0 +1,314 @@
+<html>
+    <head>
+        <title>Le Horoscope</title>
+
+        <style>
+
+            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                padding: 40px 20px;
+                min-height: 100vh;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+                color: #f5eaff;
+                background: linear-gradient(135deg, #100b25, #29164b, #44245e);
+            }
+
+            .zodiacImage {
+                display: block;
+                width: 80%;
+                max-width: 300px;
+                height: auto;
+                margin: 30px auto;
+                border-radius: 18px;
+                box-shadow: 0 0 25px rgba(205, 170, 255, 0.3);
+            }
+
+            /* Main heading and introduction */
+            h1 {
+                font-family: 'Cinzel', serif;
+                font-size: 42px;
+                color: #f6d88b;
+                letter-spacing: 3px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 20px;
+                line-height: 1.8;
+                color: #e2d5f5;
+            }
+
+            /* Decorative subtitle */
+            .subtitle {
+                color: #c9a9ed;
+                font-size: 14px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+            }
+
+            /* Main sections */
+            select, input[type="textbox"] {
+                padding: 13px 18px;
+                border: 1px solid #b99ae0;
+                border-radius: 12px;
+                background-color: #24143d;
+                color: white;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                margin: 8px;
+            }
+
+            select {
+                cursor: pointer;
+            }
+
+            /* Buttons */
+            input[type="button"] {
+                padding: 13px 24px;
+                margin: 10px;
+                border: none;
+                border-radius: 25px;
+                background: linear-gradient(90deg, #c49ae8, #f2d18b);
+                color: #25143a;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            input[type="button"]:hover {
+                transform: scale(1.06);
+                box-shadow: 0 0 18px #d6b5ff;
+            }
+
+            /* Prediction and zodiac result cards */
+            #idOutcome, #idZodiacSign {
+                max-width: 650px;
+                margin: 20px auto;
+                padding: 25px;
+                border: 1px solid #b99ae0;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, 0.08);
+                color: #ffe6a8;
+                font-size: 17px;
+                line-height: 1.8;
+                box-shadow: 0 0 20px rgba(190, 145, 255, 0.12);
+            }
+
+            /* Section divider */
+            hr {
+                width: 60%;
+                border: none;
+                border-top: 1px solid #9270b9;
+                margin: 45px auto;
+            }
+
+            /* Small screen adjustments */
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 30px;
+                }
+
+                select, input[type="textbox"] {
+                    max-width: 90%;
+                }
+            }
+
+        </style>
+
+        <script>
+            function showPrediction(){
+                let output = "Votre Prédiction: "
+
+                if(idSelectZodiacSign.value == "Obtenir un signe du zodiaque au hasard"){
+                    let randInt = Math.floor(Math.random() * 12);
+                    console.log(randInt);
+
+                    if(randInt == 0){
+                        idSelectZodiacSign.value = "Bélier";
+                    }
+                    if(randInt == 1){
+                        idSelectZodiacSign.value = "Lion";
+                    }
+                    if(randInt == 2){
+                        idSelectZodiacSign.value = "Sagittaire";
+                    }
+                    if(randInt == 3){
+                        idSelectZodiacSign.value = "Taureau";
+                    }
+                    if(randInt == 4){
+                        idSelectZodiacSign.value = "Capricorne";
+                    }
+                    if(randInt == 5){
+                        idSelectZodiacSign.value = "Vierge";
+                    }
+                    if(randInt == 6){
+                        idSelectZodiacSign.value = "Verseau";
+                    }
+                    if(randInt == 7){
+                        idSelectZodiacSign.value = "Gémeaux";
+                    }
+                    if(randInt == 8){
+                        idSelectZodiacSign.value = "Balance";
+                    }
+                    if(randInt == 9){
+                        idSelectZodiacSign.value = "Poissons";
+                    }
+                    if(randInt == 10){
+                        idSelectZodiacSign.value = "Cancer";
+                    }
+                    if(randInt == 11){
+                        idSelectZodiacSign.value = "Scorpion";
+                    }
+                }
+
+                if(idSelectZodiacSign.value == "Bélier"){
+                    output += "Vous deviendrez un artiste très talentueux, mais tu perdras toute ta gloire.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Lion"){
+                    output += "Vous adorerez les animaux, et vous adopterez un chat.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Sagittaire"){
+                    output += "Quand vous faites de l'exercice, vous tomberez et vous vous blesserez au bras.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Taureau"){
+                    output += "Vous rencontrerez Taylor Swift, mais elle ne vous aimera pas.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Capricorne"){
+                    output += "Vous irez à l'université de vos rêves, mais vous raterez tous vos examens.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Vierge"){
+                    output += "Cette semaine, vous découvrirez un pouvoir magique et vous pourrez lire dans les pensées des autres.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Verseau"){
+                    output += "Vous participerez aux epreuves de selection, vous ne serez pas choisi mais vous trouverez une meilleure opportunité";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Gémeaux"){
+                    output += "Lorsque vous conduirez, vous aurez un accident, mais vous survivrez.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Balance"){
+                    output += "Aussitot que vous deviendrez riche, vous perdrez tout vos argents.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Poissons"){
+                    output += "Vous ne réussirez pas à l'école, mais vous deviendrez medicen.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Cancer"){
+                    output += "Vous deviendrez acteur, mais vous oublierez votre script.";
+                    idOutcome.innerHTML = output;
+                }
+                if(idSelectZodiacSign.value == "Scorpion"){
+                    output += "Quand vous achèterez une maison, vous adopterez vingt chat.";
+                    idOutcome.innerHTML = output;
+                }
+                
+            }
+
+            function getZodiacSign(){
+                let day = idDay.value;
+                let month = idMonth.value;
+
+                let zodiac;
+                let output = "Votre Signe du Zodiaque: ";
+
+                if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
+                    zodiac = "Bélier";
+                }
+                else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
+                    zodiac = "Taureau";
+                }
+                else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+                    zodiac = "Gémeaux";
+                }
+                else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
+                    zodiac = "Cancer";
+                }
+                else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
+                    zodiac = "Lion";
+                }
+                else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
+                    zodiac = "Vierge";
+                }
+                else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
+                    zodiac = "Balance";
+                }
+                else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
+                    zodiac = "Scorpion";
+                }
+                else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
+                    zodiac = "Sagittaire";
+                }
+                else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
+                    zodiac = "Capricorne";
+                }
+                else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
+                    zodiac = "Verseau";
+                }
+                else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+                    zodiac = "Poissons";
+                }
+                else {
+                    zodiac = "date invalide";
+
+                    output = "Veuillez saisir une date valide.: "
+                }
+
+               idZodiacSign.innerHTML = output + zodiac;
+            }
+        </script>
+    </head>
+    <body>
+        <p>Bonjour! Voici un site web où vous pouvez obtenir une prédiction basée sur votre signe du zodiaque.</p>
+        <br><br>
+        <img src="Les signes astrologiques en anglais.jpg" 
+            alt="Les douze signes astrologiques"
+            class="zodiacImage">
+        <br><br>
+        <select id="idSelectZodiacSign">
+            <option>Choisir Une Option</option>
+            <option>Obtenir un signe du zodiaque au hasard</option>
+            <option>Bélier</option>
+            <option>Lion</option>
+            <option>Sagittaire</option>
+            <option>Taureau</option>
+            <option>Capricorne</option>
+            <option>Vierge</option>
+            <option>Verseau</option>
+            <option>Gémeaux</option>
+            <option>Balance</option>
+            <option>Poissons</option>
+            <option>Cancer</option>
+            <option>Scorpion</option>
+        </select>
+        <input type="button" value="Obtenir une Prediction" onclick="showPrediction()">
+        <br><br>
+        <div id="idOutcome"></div>
+        <br><br>
+
+        <p>Vous ne connaissez pas votre signe du zodiaque ? Saisissez votre date de naissance pour le découvrir!</p>
+        <br>
+        <input type="textbox" placeholder="Le Jour" id="idDay">
+        <input type="textbox" placeholder="Le Mois (chiffre)" id="idMonth">
+        <br>
+        <input type="button" value="Obtenir" onclick="getZodiacSign()">
+        <br>
+        <div id="idZodiacSign"></div>
+    </body>
+</html>
